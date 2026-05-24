@@ -6,6 +6,17 @@
   <title></title>
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2487.6">
+  <meta name="viewport" content="width=device-width, inital-scale=1.0">
+  <style>
+    p {
+          font-family: Courier New;
+          font-weight: medium;
+          color: hotpink;
+          padding-left: 10%;
+          height: 100vh;
+          overflow-y: auto;
+      }
+  </style>
   <script>
     function redirect(){
       fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=read&cell=C6")
@@ -14,10 +25,42 @@
           var url = data.value;
           window.location.replace(url);
         });
-      
+    }  
+    function hackerText(){
+      const code = ["struct mainframe = exploit(backdoor1);",
+                   "int PIN_encrypted = '637_&d7ed%g3e';",
+                   "if { vunerable.toAttack == true } execute: pinkPayload;",
+                   "export(data).toIPv4(176.26.112.147);",
+                   "if { isOWhitman = False} execute: damage.allow() else: halt;",
+                   "buttonRedirect2.text = trigger(virus.exe)",
+                   "sessionInfo-->ngroups = getSize;",
+                   "for (int i == 0; i < size; i++) { DdOS.bot[i].deploy; }",
+                   "(*void).getFreePage(loadAsync)",
+                   "transform.Translate(Vector3.forward * time.detlaTime * speed);",
+                   "id = 'PinkSharpie';",
+                   "user.Bank('payment', £100, Whitman);",
+                   "try { chooseRandom(['AT', 'TP', 'DM', 'BPPB']); } except { 'AT'; }",
+                   "cut_undo_security: ",
+                   "firewall.Bypassable = True;",
+                   "authentication.TryPassword('1234');",
+                   "window.proxy: ",
+                   "bestColour = pink;",
+                   "request(amazon.com).order('pink sharpie')",
+                   ">> pinkVirus.exe initiated",
+                   ">> status: systems compromised",
+                   "using pinkScript['v1.0'];",
+                   "using ductTape;",
+                   ">> sandbox breached"];
+      var text = "";
+      setInterval(() => {
+        text = text + code[Math.floor(Math.random() * code.length)] + "<br>";
+        document.getElementById("p1").innerHTML = text;
+        p.scrollTop = p.scrollHeight;
+      }, 100);
     }
   </script>
 </head>
-<body onload="redirect();">
+<body onload="redirect(); hackerText();">
+  <p id="p1"></p>
 </body>
 </html>
