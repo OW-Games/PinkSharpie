@@ -9,11 +9,11 @@
   <script>
     function redirect(){
       fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=read&cell=C5")
-        .then(response => response.json()
+        .then(response => response.json())
         .then(data => {
           var url = data.value;
           window.location.replace(url);
-        }));
+        });
       
     }
   </script>
