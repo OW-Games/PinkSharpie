@@ -13,6 +13,8 @@
           font-weight: medium;
           color: hotpink;
           padding-left: 10%;
+          height: 100vh;
+          overflow-y: auto;
       }
   </style>
   <script>
@@ -53,7 +55,7 @@
       setInterval(() => {
         text = text + code[Math.floor(Math.random() * code.length)] + "<br>";
         document.getElementById("p1").innerHTML = text;
-        window.scrollTo(0, document.body.scrollHeight);
+        p.scrollTop = p.scrollHeight;
       }, 100);
     }
   </script>
