@@ -101,10 +101,10 @@
       }
       else {
         cell1 = "C5";
-        cell2 = "C6"
+        cell2 = "C6";
       }
 
-      if (cell2 != null){
+      if (gateway == 3){
         fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&cell2=" + cell2 + "&value=" + encodeURIComponent(link) + "&value2=" + encodeURIComponent(link2))
         .then(response => {
           window.location.replace("about:blank");
