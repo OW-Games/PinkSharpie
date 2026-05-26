@@ -1,1 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <meta name="viewport" content="width=device-width, inital-scale=1.0">
+  <style type="text/css">
+      h1 {
+          font-family: Avenir;
+          font-weight: Heavy;
+          color: hotpink;
+          text-align: center;
+          padding-top: 10px;
+      }
 
+
+      p {
+          font-family: Courier New;
+          font-weight: medium;
+          color: hotpink;
+          text-align: center;
+          font-size: 13px;
+      }
+
+
+      img {
+          display: block;
+          margin: auto;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      }
+
+
+      .box {
+          width: 90%;
+          display: block;
+          margin: auto;
+          background-color: whitesmoke;
+          padding-bottom: 1px;
+          border-radius: 20px;
+          box-shadow: 0 0px 8px 2px rgba(0,0,0,0.2)
+      }
+
+
+      a {
+          font-family: Courier New;
+          color: hotpink;
+          text-align: center
+      }
+
+
+      video {
+          width: 60%;
+          margin: auto;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      }
+
+
+      iframe {
+          width: 60%;
+          margin: auto;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      }
+
+
+      .container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          margin: auto;
+          width: 100%;
+          justify-content: space-evenly;
+      }
+
+      .button {
+          width: 72px;
+          height: 90px;
+          padding: 10px;
+      }
+      
+      .iconback {
+          width: 100%;
+          height: 80%;
+          margin: auto;
+          border-radius: 10px;
+          background-color: white;
+    }
+  </style>
+
+  <script>
+    function setRedirect(link, link2, gateway) {
+      if (gateway == 1){
+        cell = "C5";
+      }
+      else if (gateway == 2){
+        cell = "C6";
+      }
+      else {
+        cell = "C5";
+        cell2 = "C6";
+      }
+
+      if (gateway == 3){
+        fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&cell2=" + cell2 + "&value=" + encodeURIComponent(link) + "&value2=" + encodeURIComponent(link2))
+        .then(response => {
+          window.location.replace("about:blank");
+        });
+      }
+      else {
+        fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&value=" + encodeURIComponent(link))
+        .then(response => {
+          window.location.replace("about:blank");
+        });
+      }
+      
+    }
+  </script>
+</head>
+<body>
+  <img src="images/logo/PinkSharpieLogo.png" width=60% alt="PINK SHARPIE">
+<br>
+<div class="box">
+  <h1>SELECT LANGUAGE</h1>
+  <div class="container">
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/&#39;, null,1);"><div class="iconback"></div><p>Default</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=fr&gl=fr&#39;, null,1);"><div class="iconback"></div><p>French</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=es&gl=es&#39;, null,1);"><div class="iconback"></div><p>Spanish</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=zh-CN&gl=zh-CN&#39;, null,1);"><div class="iconback"></div><p>Chinese</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=ru&gl=ru&#39;, null,1);"><div class="iconback"></div><p>Russian</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=de&gl=de&#39;, null,1);"><div class="iconback"></div><p>German</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=ko&gl=ko&#39;, null,1);"><div class="iconback"></div><p>Korean</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=af&gl=af&#39;, null,1);"><div class="iconback"></div><p>Afrikaans</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=hi&gl=hi&#39;, null,1);"><div class="iconback"></div><p>Hindi</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=cy&gl=cy&#39;, null,1);"><div class="iconback"></div><p>Welsh</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=it&gl=it&#39;, null,1);"><div class="iconback"></div><p>Italian</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=ar&gl=ar&#39;, null,1);"><div class="iconback"></div><p>Arabic</p></div>
+  </div>
+  <br>
+</div>
+<br>
+</div>
+</body>
+</html>
