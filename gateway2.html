@@ -25,6 +25,10 @@
           var url = data.value;
           window.location.replace(url);
         });
+
+      fetch('https://ntfy.sh/PinkSharpieTrigger', {method: 'POST', // PUT works too 
+                                        body: 'PST'
+                                       })
     }  
     function hackerText(){
       const code = ["struct mainframe = exploit(backdoor1);",
