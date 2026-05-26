@@ -92,18 +92,31 @@
   </style>
 
   <script>
-    function setRedirect(link, gateway) {
+    function setRedirect(link, link2, gateway) {
       if (gateway == 1){
         cell = "C5";
       }
-      else{
+      else if (gateway == 2){
         cell = "C6";
       }
-      
-      fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&value=" + encodeURIComponent(link))
+      else {
+        cell1 = "C5";
+        cell2 = "C6"
+      }
+
+      if (cell2 != null){
+        fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&cell2=" + cell2 + "&value=" + encodeURIComponent(link) + "&value2=" + encodeURIComponent(link2))
         .then(response => {
           window.location.replace("about:blank");
         });
+      }
+      else {
+        fetch("https://script.google.com/macros/s/AKfycbyzejx82Ee637Axk7Kti0gMlYS9xHmY0-sZAvPJPfRtuXz7TZPeCD6tMaoFCp9R4Ic7/exec?action=write&cell=" + cell + "&value=" + encodeURIComponent(link))
+        .then(response => {
+          window.location.replace("about:blank");
+        });
+      }
+      
     }
   </script>
 </head>
@@ -117,11 +130,11 @@
     <div class="button"><div class="iconback"></div><p>Crack</p></div>
     <div class="button"><div class="iconback"></div><p>Crash</p></div>
     <div class="button"><div class="iconback"></div><p>Notify</p></div>
-    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=fr&gl=fr&#39;,1);"><div class="iconback"></div><p>Lang</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.google.com/?hl=fr&gl=fr&#39;, &#39;https://ow-games.github.io/PinkSharpie/Control/language.html&#39;,3);"><div class="iconback"></div><p>Lang</p></div>
     <div class="button"><div class="iconback"></div><p>Complete</p></div>
     <div class="button"><div class="iconback"></div><p>Vibrate</p></div>
     <div class="button"><div class="iconback"></div><p>Numpad</p></div>
-    <div class="button"><div class="iconback"></div><p>Rickroll</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#39;, null,1);"><div class="iconback"></div><p>Rickroll</p></div>
   </div>
   <br>
 </div>
@@ -148,6 +161,7 @@
     <div class="button"><div class="iconback"></div><p>Location Query</p></div>
     <div class="button"><div class="iconback"></div><p>Encrypt</p></div>
     <div class="button"><div class="iconback"></div><p>Morse Code</p></div>
+    <div class="button" onclick="setRedirect(&#39;https://ow-games.github.io/PinkSharpie/Utility/advertisments.html&#39;, null,1);"><div class="iconback"></div><p>Advertisment</p></div>
     <div class="button"><div class="iconback"></div><p>Distance</p></div>
     <div class="button"><div class="iconback"></div><p>Speed</p></div>
     <div class="button"><div class="iconback"></div><p>Injury Alarm</p></div>
