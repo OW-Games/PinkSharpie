@@ -70,7 +70,11 @@
 
       const socket = new WebSocket('wss://ntfy.sh/PinkSharpieTrigger/ws');
       socket.addEventListener('message', function (event) {
-        console.log(on);
+        on = !on;
+
+        if (on){
+          navigator.vibrate(500);
+        }
       });
     }
   </script>
