@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torch Trigger</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #121212;
+          margin: 0;
+      }
+      .btn {
+          padding: 15px 30px;
+          font-size: 18px;
+          font-weight: bold;
+          color: white;
+          background-color: hotpink;
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+          box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      }
+      .btn:disabled {
+          background-color: #555;
+          box-shadow: none;
+          cursor: not-allowed;
+      }
+  </style>
+</head>
+<body>
+
+  <button id="startButton" class="btn" onclick="initTorch()">Enable Listener & Flashlight</button>
+
+  <script>
+    let track = null;
+    let on = false;
+
+    async function initTorch() {
+      const button = document.getElementById('startButton');
+      button.disabled = true;
+      button.innerText = "Connecting...";
+
+      // 1. Check for Secure Context
+      if (!window.isSecureContext) {
+        alert("Webcam APIs require a secure context (HTTPS or localhost).");
+        button.innerText = "Error: Insecure Context";
+        return;
+      }
+
+      try {
+        // 2. Fetch input devices
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const cameras = devices.filter(device => device.kind === 'videoinput');
+
+        if (cameras.length === 0) {
+          alert("No camera found on this device.");
+          return;
+        }
+
+        // Target the back camera (usually last in the list)
+        const backCamera = cameras[cameras.length - 1];
+
+        // 3. Request permissions explicitly via user gesture
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            deviceId: backCamera.deviceId,
+            facingMode: 'environment'
+          }
+        });
+
+        track = stream.getVideoTracks()[0];
+        const capabilities = track.getCapabilities();
+
+        // 4. Validate hardware flash capability
+        if (!capabilities.torch) {
+          alert("This camera hardware does not support an adjustable torch/flashlight.");
+          return;
+        }
+
+        // 5. Initialize WebSocket once access is securely granted
+        const socket = new WebSocket('wss://ntfy.sh/PinkSharpieTrigger/ws');
+        
+        socket.addEventListener('open', () => {
+          button.innerText = "Listening for Triggers...";
+        });
+
+        socket.addEventListener('message', async (event) => {
+          on = !on;
+          try {
+            await track.applyConstraints({
+              advanced: [{ torch: on }]
+            });
+          } catch (err) {
+            console.error("Failed to toggle hardware switch:", err);
+          }
+        });
+
+        socket.addEventListener('error', (err) => {
+          console.error("WebSocket Error:", err);
+          button.innerText = "Connection Failed";
+          button.disabled = false;
+        });
+
+      } catch (error) {
+        console.error("Initialization failed:", error);
+        alert("Permission denied or camera resource busy.");
+        button.innerText = "Try Again";
+        button.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
