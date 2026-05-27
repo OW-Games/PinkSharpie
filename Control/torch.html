@@ -65,7 +65,7 @@
       }
   </style>
   <script>
-    function torch(){
+    async function torch(){
       try {
         let on = false;
         const devices = await navigator.mediaDevices.enumerateDevices();
@@ -74,7 +74,7 @@
 
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
-            deviceId: backCamera.deviceId,
+            deviceId: backCam.deviceId,
             facingMode: "environment"
           }
         });
@@ -85,12 +85,12 @@
 
         const socket = new WebSocket('wss://ntfy.sh/PinkSharpieTrigger/ws');
 
-        socket.addEventListener('message', async (event) {
+        socket.addEventListener('message', async => (event) {
           try {
             on = !on;
             console.log(on);
             await track.applyConstraints({
-              advanced: [torch: on]
+              advanced: [{torch: on}]
             });
           }
         });
