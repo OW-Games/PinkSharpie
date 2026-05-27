@@ -85,7 +85,7 @@
 
         const socket = new WebSocket('wss://ntfy.sh/PinkSharpieTrigger/ws');
 
-        socket.addEventListener('message', async => (event) {
+        socket.addEventListener('message', async (event) => {
           try {
             on = !on;
             console.log(on);
