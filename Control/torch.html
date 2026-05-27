@@ -92,6 +92,8 @@
             await track.applyConstraints({
               advanced: [{torch: on}]
             });
+          } catch (error){
+            console.log("Nah...")
           }
         });
       } catch (error) {
