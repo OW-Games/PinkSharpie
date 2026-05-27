@@ -88,6 +88,7 @@
         socket.addEventListener('message', async (event) {
           try {
             on = !on;
+            console.log(on);
             await track.applyConstraints({
               advanced: [torch: on]
             });
@@ -97,6 +98,7 @@
     }
   </script>
 </head>
-<body onclick="torch();">
+<body>
+  <div color="blue" onclick="torch();">Button</div>
 </body>
 </html>
