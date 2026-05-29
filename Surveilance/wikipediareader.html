@@ -90,15 +90,6 @@
           background-color: white;
     }
   </style>
-    
-  <script>
-    const socket = new WebSocket('wss://ntfy.sh/PinkSharpieIntel/ws');
-    const output = document.getElementById("output");
-    
-    socket.addEventListener('message', function (event) {
-      output.innerHTML = event.data;
-    });
-  </script>
 </head>
 <body>
 <div class="box">
@@ -107,5 +98,14 @@
   <p id="output">Loading...</p>
 <br>
 </div>
+  <script>
+    const socket = new WebSocket('wss://ntfy.sh/PinkSharpieIntel/ws');
+    const output = document.getElementById("output");
+    
+    socket.addEventListener('message', function (event) {
+      console.log(event.data);
+      output.innerHTML = event.data;
+    });
+  </script>
 </body>
 </html>
