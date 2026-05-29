@@ -103,7 +103,8 @@
     const output = document.getElementById("output");
     
     socket.addEventListener('message', function (event) {
-      output.innerHTML = event.text;
+      output.innerHTML = event.message;
+      console.log(event.message);
     });
   </script>
 </body>
